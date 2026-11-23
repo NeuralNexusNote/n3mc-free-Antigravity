@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+.venv/
+venv/
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# The rules file the Stop hook writes into each project folder
+.agents/
+
+# Backups and local data
+*.bak
+*.bak-*
+*.db
+*.log
