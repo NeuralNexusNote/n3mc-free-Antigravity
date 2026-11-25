@@ -1,26 +1,33 @@
-# N3MemoryCore for Antigravity (N3MC-Free-Antigravity)
+# N3MemoryCore Free for Antigravity (n3mc-free-Antigravity) v1.9.1
 
-**Give Antigravity a memory that does not fade.**
+**Give Antigravity a memory that does not fade — free, on your own PC.**
 
 Antigravity forgets what you were working on when you close the conversation.
 N3MemoryCore saves every message and reply in a file on your own PC, and brings
 the related ones back the next time you talk about the same thing. You do not
 have to say "remember this", and Antigravity does not have to call a search
 tool: the hooks do both on every turn.
+Of the AI's memory, N3MC covers the **conversation history** layer (what was said, when, and in which conversation). It does not cover the rules that are always loaded, such as rule files, or connections to external tools.
 
-```bash
-git clone https://github.com/NeuralNexusNote/n3mc-free-Antigravity.git
-cd n3mc-free-Antigravity
-pip install -e .
-n3mc-free-antigravity --init
-```
+1. In File Explorer, create an empty folder
+2. Put the specification `N3MemoryCore_v1.9.1_Free_EN.md` into it (put nothing else in it)
+3. Open Antigravity in that folder
+4. Send: "Please implement N3MemoryCore according to the specification `N3MemoryCore_v1.9.1_Free_EN.md`."
+5. When it is done, restart Antigravity (see [Restart Antigravity](#4-restart-antigravity))
 
-Then restart Antigravity. Memory works from the next session. The first run
+Memory works from the next session. The first run
 downloads the search model (about 1.1 GB) once. Details: [Setup](#setup).
+To install this repository's code with `pip` instead (bonus), see [Method B: Install the package (bonus)](#method-b-install-the-package-bonus).
+
+> **⚠️ Disclaimer**
+>
+> - **No support, no claims**: This project is provided as-is with no support. Questions, bug reports, and feature requests are not guaranteed a response. Use entirely at your own discretion.
+> - **Use at your own risk**: This system runs on AI-generated code. The author is not responsible for any data changes or issues caused by its use.
+> - **Backup first**: Always back up your current environment before running this on important projects.
 
 > **⚠️ How long memories are kept, and data size**
 >
-> - **Memories are not deleted.** This edition has no feature that deletes old records; they stay after a year without changing any setting.
+> - **Memories are not deleted.** This edition has no feature that deletes old records.
 > - **More data makes it slower.** The more records there are, the longer a search takes.
 
 > A NeuralNexusNote™ product
@@ -95,7 +102,7 @@ This project prioritizes Instructions over Static Code. Please read our [Develop
 
 This edition was made by rewriting the specification of [N3MC Free](https://github.com/NeuralNexusNote/n3mc-free) v1.9.1 (for Claude Code) for Antigravity, and generating the code from that specification. Saving and searching work as in the main Free; what differs is how the hooks are wired and the names.
 
-**Two install paths are supported**: install this repository's code with `pip install -e .` and run `n3mc-free-antigravity --init`, or drop the specification into Antigravity and let it build the system. Either way, no manual hook editing. (See [Setup](#setup) below.)
+**Two ways to set it up**: drop the specification into Antigravity and let it build the system (primary), or install this repository's code with `pip install -e .` and run `n3mc-free-antigravity --init` (bonus). Either way, no manual hook editing. (See [Setup](#setup) below.)
 
 ## How this edition relates to the main Free
 
@@ -188,9 +195,25 @@ The file names are the same as the main Free's specification files; the content 
 
 ## Setup
 
-There are two supported setup paths. (The names are the same as in the specification: Path A is `pip`, Path B is AI-native.)
+There are two ways to set it up. Method A, generating the code from the specification, is the primary one; Method B, installing the package, is a bonus. (The specification calls Method A "Path B — AI-Native Setup" and Method B "Path A — Quick Start with `pip`".)
 
-### Path A — Install with `pip`
+### Method A: Generate from the spec (primary, recommended)
+
+Let Antigravity generate the code from the specification:
+
+1. **Make a folder**: in File Explorer, create one empty folder (for example `C:\Users\<you>\n3mc-free-antigravity`). The code is generated in this folder and stays in use after setup; do not delete or move it later.
+2. **Put the specification in it**: copy the specification `N3MemoryCore_v1.9.1_Free_EN.md` from the table above into that folder (put nothing else in it).
+3. **Open Antigravity in that folder**
+4. **Ask**: send "Please implement N3MemoryCore according to the specification `N3MemoryCore_v1.9.1_Free_EN.md`."
+
+Antigravity shows the folder and asks you once to confirm it; then it writes the code, configures the hooks, and sets everything up. It stops instead if the folder holds other files, so that a project of yours is not overwritten.
+Memory kicks in from the next session. The generated code stays in that folder: deleting or moving it later stops the memory.
+
+---
+
+### Method B: Install the package (bonus)
+
+Use the reference build directly:
 
 #### 1. Install
 
@@ -253,20 +276,7 @@ Set `N3MC_FREE_ANTIGRAVITY_HOME=/path/to/dir` to keep the data somewhere else. N
 
 ---
 
-### Path B — AI-Native Setup
-
-Let Antigravity generate the code from the specification:
-
-1. Create an **empty folder** (for example `~/n3mc-free-antigravity`) and put one specification file from the table above into it
-2. Open Antigravity in that folder
-3. Say: "Please implement N3MemoryCore according to this specification."
-
-Antigravity shows the folder and asks you once to confirm it; then it writes the code, configures the hooks, and sets everything up. It stops instead if the folder holds other files, so that a project of yours is not overwritten.
-Memory kicks in from the next session. The generated code stays in that folder: deleting or moving it later stops the memory.
-
----
-
-### Troubleshooting (Path A)
+### Troubleshooting (Method B)
 
 **`n3mc-free-antigravity: command not found` after `pip install`**
 Your Python `Scripts/` (Windows) or `bin/` (Linux) directory is not on `PATH`. Either add it to `PATH`, or invoke as `python -m n3memorycore_free_antigravity.n3memory --init` instead.
@@ -355,7 +365,7 @@ Keep these 2 files together: `config.json` holds the IDs that are stamped on the
 
 ### Uninstall
 
-If you set up via Path B, ask Antigravity: "Please delete N3MemoryCore." — it also removes the hook configuration.
+If you set up via Method A, ask Antigravity: "Please delete N3MemoryCore." — it also removes the hook configuration.
 
 To do it yourself:
 
@@ -397,19 +407,13 @@ agent_name  (a display label, outside the hierarchy: "antigravity" for the hooks
 
 - **Antigravity** (required; its hook system is used)
 - **Python 3.10+**
-- **OS**: Windows 11 and Linux. macOS is not supported.
+- **OS**: Windows 11 and Ubuntu (tested). macOS is not supported.
 
 > To check if Python is installed, run `python --version` in your terminal.
 
 ## Extensibility
 
 N3MemoryCore is built from a specification, so extending it is as simple as asking Antigravity: load the specification into Antigravity and say what you want to add. When you customize it, tell Antigravity where the specification is and ask it to update the specification too.
-
-## ⚠️ Disclaimer
-
-- **No support, no claims**: This project is provided as-is with no support. Questions, bug reports, and feature requests are not guaranteed a response. Use entirely at your own discretion.
-- **Use at your own risk**: This system runs on AI-generated code. The author is not responsible for any data changes or issues caused by its use.
-- **Backup first**: Always back up your current environment before running this on important projects.
 
 ---
 
