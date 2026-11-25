@@ -5,6 +5,22 @@ This edition ports and optimizes the main N3MemoryCore Free v1.9.1 specification
 This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.2] - 2026-11-25
+
+First release on PyPI (`pip install n3memorycore-free-antigravity`). The code
+is the same as 1.9.1; the specification is still v1.9.1.
+
+### Docs
+- README (EN/JP) follows the layout of the main Free README: generation from
+  the specification is the primary way to install, `pip` is the bonus way, and
+  the disclaimer is in the opening box.
+- README (EN/JP): `pip install n3memorycore-free-antigravity` is the simplest
+  way to install the package; installing from a clone stays as the second way.
+
+### Added
+- `.github/workflows/pypi-publish.yml`: publishing a GitHub Release builds the
+  package and publishes it to PyPI (Trusted Publishing).
+
 ## [1.9.1] - 2026-11-23
 
 ### Added (Antigravity Edition)

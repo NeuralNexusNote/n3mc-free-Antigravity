@@ -17,7 +17,7 @@ Of the AI's memory, N3MC covers the **conversation history** layer (what was sai
 
 Memory works from the next session. The first run
 downloads the search model (about 1.1 GB) once. Details: [Setup](#setup).
-To install this repository's code with `pip` instead (bonus), see [Method B: Install the package (bonus)](#method-b-install-the-package-bonus).
+To install from PyPI instead (bonus), see [Method B: Install the package (bonus)](#method-b-install-the-package-bonus).
 
 > **⚠️ Disclaimer**
 >
@@ -102,7 +102,7 @@ This project prioritizes Instructions over Static Code. Please read our [Develop
 
 This edition was made by rewriting the specification of [N3MC Free](https://github.com/NeuralNexusNote/n3mc-free) v1.9.1 (for Claude Code) for Antigravity, and generating the code from that specification. Saving and searching work as in the main Free; what differs is how the hooks are wired and the names.
 
-**Two ways to set it up**: drop the specification into Antigravity and let it build the system (primary), or install this repository's code with `pip install -e .` and run `n3mc-free-antigravity --init` (bonus). Either way, no manual hook editing. (See [Setup](#setup) below.)
+**Two ways to set it up**: drop the specification into Antigravity and let it build the system (primary), or install the package with `pip install n3memorycore-free-antigravity` and run `n3mc-free-antigravity --init` (bonus). Either way, no manual hook editing. (See [Setup](#setup) below.)
 
 ## How this edition relates to the main Free
 
@@ -144,7 +144,7 @@ Remove the two settings to go back to standalone.
 
 The earlier Antigravity edition used the same names as the main Free (Python package `n3memorycore`, command `n3mc`, data folder `~/.n3mc`). This edition has its own names, so it has to be installed again.
 
-- Run `pip install -e .`, then `n3mc-free-antigravity --init`.
+- Run `pip install n3memorycore-free-antigravity` (or `pip install -e .` in this repository), then `n3mc-free-antigravity --init`.
 - `--init` replaces the old entry (`n3memorycore`) in `~/.gemini/config/hooks.json` with the new one. If the old entry holds other commands, it is kept, and `--init` prints a line about it.
 - Earlier records in `~/.n3mc` stay where they are. This edition sees them only in [connection mode](#sharing-one-memory-with-claude-code-connection-mode).
 
@@ -217,7 +217,13 @@ Use the reference build directly:
 
 #### 1. Install
 
-This edition is not on PyPI. Get the repository and install from it:
+The simplest install — straight from PyPI (no clone needed):
+
+```bash
+pip install n3memorycore-free-antigravity
+```
+
+Or, if you want a local checkout to read / modify / contribute:
 
 ```bash
 git clone https://github.com/NeuralNexusNote/n3mc-free-Antigravity.git

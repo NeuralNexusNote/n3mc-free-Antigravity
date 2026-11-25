@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "n3memorycore-free-antigravity"
-version = "1.9.1"
+version = "1.9.2"
 description = "Persistent hybrid-search memory store for Antigravity (Free Edition)"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -47,8 +47,8 @@ n3mc-free-antigravity-hook      = "n3memorycore_free_antigravity.n3mc_hook:main"
 n3mc-free-antigravity-stop-hook = "n3memorycore_free_antigravity.n3mc_stop_hook:main"
 
 [project.urls]
-Homepage = "https://github.com/NeuralNexusNote/n3mc-free-antigravity"
-Issues   = "https://github.com/NeuralNexusNote/n3mc-free-antigravity/issues"
+Homepage = "https://github.com/NeuralNexusNote/n3mc-free-Antigravity"
+Issues   = "https://github.com/NeuralNexusNote/n3mc-free-Antigravity/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]

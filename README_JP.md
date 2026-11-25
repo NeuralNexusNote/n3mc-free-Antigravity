@@ -17,7 +17,7 @@ AI の記憶のうち、N3MC は**会話履歴**の層（いつ、どの会話�
 
 次のセッションから記憶が働きます。
 最初の 1 回だけ、検索用のモデル（約 1.1 GB）のダウンロードがあります。詳しくは [セットアップ](#セットアップ) を見てください。
-リポジトリのコードを `pip` で入れる方法（おまけ）は [方法 B：パッケージ導入（おまけ）](#方法-bパッケージ導入おまけ) にあります。
+PyPI から入れる方法（おまけ）は [方法 B：パッケージ導入（おまけ）](#方法-bパッケージ導入おまけ) にあります。
 
 > **⚠️ ご利用にあたって**
 >
@@ -100,7 +100,7 @@ _If several versions of the same content appear, the one with the newest `saved`
 
 この版は、Claude Code 用の [N3MC Free](https://github.com/NeuralNexusNote/n3mc-free) v1.9.1 の指示書を Antigravity 用に書き直し、その指示書から作ったものです。保存と検索の中身は本体の Free と同じで、違うのはフックのつなぎ方と名前です。
 
-**2 つの導入方法**: 指示書を Antigravity に渡して実装させるか（メイン）、このリポジトリのコードを `pip install -e .` で入れて `n3mc-free-antigravity --init` を実行するか（おまけ）。どちらの方法でもフック設定は手動編集不要です。（詳細は[セットアップ](#セットアップ)参照）
+**2 つの導入方法**: 指示書を Antigravity に渡して実装させるか（メイン）、パッケージを `pip install n3memorycore-free-antigravity` で入れて `n3mc-free-antigravity --init` を実行するか（おまけ）。どちらの方法でもフック設定は手動編集不要です。（詳細は[セットアップ](#セットアップ)参照）
 
 ## 本体の Free との関係
 
@@ -142,7 +142,7 @@ N3MC Free には、使うアプリごとに版があります。**Antigravity �
 
 以前の Antigravity 版は、本体の Free と同じ名前（Python のパッケージ `n3memorycore`、コマンド `n3mc`、データフォルダ `~/.n3mc`）を使っていました。この版は名前が違うので、入れ直しが必要です。
 
-- `pip install -e .` のあと、`n3mc-free-antigravity --init` を実行します。
+- `pip install n3memorycore-free-antigravity`（またはこのリポジトリで `pip install -e .`）のあと、`n3mc-free-antigravity --init` を実行します。
 - `--init` は、`~/.gemini/config/hooks.json` の古い登録（`n3memorycore`）を、新しい登録に置き換えます。古い登録にほかのコマンドが入っているときは、置き換えずに残し、その旨を表示します。
 - `~/.n3mc` に保存された以前の記録は、そのまま残ります。この版からは、[接続モード](#claude-code-と同じ記憶を使う接続モード)にしたときだけ見えます。
 
@@ -215,7 +215,13 @@ Antigravity は、フォルダを表示して 1 回だけ確認を求めます�
 
 #### 1. インストール
 
-この版は PyPI に出していません。リポジトリを取得して入れます。
+最も簡単な方法 — PyPI から直接インストール (clone 不要):
+
+```bash
+pip install n3memorycore-free-antigravity
+```
+
+ローカルにコードを取得してカスタマイズしたい場合:
 
 ```bash
 git clone https://github.com/NeuralNexusNote/n3mc-free-Antigravity.git
